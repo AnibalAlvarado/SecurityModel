@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utilities.Audit.Services;
+using Utilities.Exceptions;
 using Utilities.Interfaces;
 
 namespace Data.Implementations
@@ -55,6 +56,20 @@ namespace Data.Implementations
                 .Include(ru => ru.User)
                 .Include(ru => ru.Rol)
                 .FirstOrDefaultAsync(ru => ru.Id == id);
+        }
+
+        public async Task<bool> ExistsAsync(int userId, int roleId)
+        {
+            try
+            {
+                return await _context.Set<RolUser>()
+                        .AnyAsync(ur => ur.UserId == userId && ur.RolId == roleId);
+            }
+            catch (Exception ex)
+            {
+
+                throw  new DataException("Error al obtener el rol por nombre", ex);
+            }
         }
     }
 }

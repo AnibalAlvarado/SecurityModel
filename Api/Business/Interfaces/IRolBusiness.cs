@@ -10,5 +10,6 @@ namespace Business.Interfaces
 {
     public interface IRolBusiness : IRepositoryBusiness<Rol, RolDto>
     {
+        Task<RolDto> GetByNameAsync(string name);
     }
 }

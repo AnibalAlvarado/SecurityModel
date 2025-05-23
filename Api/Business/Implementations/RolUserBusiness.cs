@@ -4,11 +4,13 @@ using Data.Implementations;
 using Data.Interfaces;
 using Entity.DTOs;
 using Entity.Model;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities.Exceptions;
 
 namespace Business.Implementations
 {
@@ -16,14 +18,29 @@ namespace Business.Implementations
     {
         private readonly IRolUserData _data;
         private readonly IMapper _mapper;
+        private readonly ILogger<RolUserBusiness> _logger;
 
-        public RolUserBusiness(IRolUserData data, IMapper mapper)
+        public RolUserBusiness(IRolUserData data, IMapper mapper, ILogger<RolUserBusiness> logger)
             : base(data, mapper)
         {
             _data = data;
             _mapper = mapper;
+            _logger = logger;
         }
 
+
+        public async Task<bool> ExistsAsync(int userId, int roleId)
+        {
+            try
+            {
+                return await _data.ExistsAsync(userId, roleId);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al verificar existencia del rol para el usuario");
+                throw new BusinessException("Error al verificar existencia del rol para el usuario", ex);
+            }
+        }
         public async Task<IEnumerable<RolUserDto>> GetAllJoinAsync()
         {
             var entities = await _data.GetAllJoinAsync();

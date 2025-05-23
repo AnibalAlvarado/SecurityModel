@@ -5,6 +5,7 @@ using Entity.DTOs;
 using Entity.Model;
 using Entity.Models;
 using Microsoft.AspNetCore.Mvc;
+using Utilities.BackgroundTasks;
 
 namespace Web.Controllers.Implementations
 {
@@ -14,11 +15,13 @@ namespace Web.Controllers.Implementations
     {
         private readonly IUserBusiness _business;
         private readonly ILogger<UserController> _logger;
-        public UserController(IUserBusiness business, ILogger<UserController> logger)
+        private readonly IBackgroundTaskQueue _backgroundTaskQueue;
+        public UserController(IUserBusiness business, ILogger<UserController> logger, IBackgroundTaskQueue backgroundTaskQueue)
             : base(business)
         {
             _logger = logger;
             _business = business;
+            _backgroundTaskQueue = backgroundTaskQueue;
         }
 
         [HttpPost("login")]
@@ -49,6 +52,55 @@ namespace Web.Controllers.Implementations
                 _logger.LogError(ex, "Error durante la autenticación del usuario");
                 return StatusCode(StatusCodes.Status500InternalServerError,
                     new ApiResponse<UserResponseDto>(null,false,"Error interno del servidor durante la autenticación",null));
+            }
+        }
+
+        [HttpPost]
+        public override async Task<ActionResult<UserDto>> Save(UserDto dto)
+        {
+            try
+            {
+                // Guardar usuario y asignar rol por defecto dentro del método Save del Business
+                UserDto dtoSaved = await _business.Save(dto);
+
+                _backgroundTaskQueue.Enqueue(async token =>
+                {
+                    try
+                    {
+                        _logger.LogInformation("📨 Iniciando tarea en segundo plano para enviar correo...");
+
+                        // Simular demora
+                        await Task.Delay(3000, token);
+                        token.ThrowIfCancellationRequested();
+
+                        if (string.IsNullOrWhiteSpace(dtoSaved.Email))
+                        {
+                            _logger.LogWarning("No se envió el correo porque el email está vacío para el usuario ID {UserId}", dtoSaved.Id);
+                            return;
+                        }
+
+                        await _business.SendWelcomeEmailAsync(dtoSaved.Email);
+                        _logger.LogInformation("✅ Tarea completada: Correo enviado.");
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        _logger.LogWarning("Tarea cancelada antes de enviar el correo a {Email}", dtoSaved.Email);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Error en la tarea en segundo plano al enviar correo a {Email}", dtoSaved.Email);
+                    }
+                });
+                _logger.LogInformation("✅ Tarea encolada. El controlador sigue respondiendo.");
+
+                var response = new ApiResponse<UserDto>(dtoSaved, true, "Registro almacenado exitosamente", null!);
+
+                return new CreatedAtRouteResult(new { id = dtoSaved.Id }, response);
+            }
+            catch (Exception ex)
+            {
+                var response = new ApiResponse<IEnumerable<UserDto>>(null!, false, ex.Message.ToString(), null!);
+                return StatusCode(StatusCodes.Status500InternalServerError, response);
             }
         }
     }

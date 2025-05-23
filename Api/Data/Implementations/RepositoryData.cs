@@ -108,7 +108,7 @@ namespace Data.Implementations
             {
                 _context.Set<T>().Add(entity);
                 await _context.SaveChangesAsync();
-                await AuditAsync("Insert", entity.Id);
+                await AuditAsync("Save", entity.Id);
                 return entity;
             }
             catch (DbException ex)

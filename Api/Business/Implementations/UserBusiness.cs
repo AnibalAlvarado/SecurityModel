@@ -22,29 +22,20 @@ namespace Business.Implementations
         private readonly IMapper _mapper;
         private readonly ILogger<UserBusiness> _logger;
         private readonly IEmailService _emailService;
-        public UserBusiness(IUserData data, IMapper mapper, ILogger<UserBusiness> logger, IEmailService emailService)
-            : base(data, mapper)
+        private readonly IRolBusiness _rolBusiness;
+        private readonly IRolUserBusiness _rolUserBusiness;
+        public UserBusiness(
+        IUserData data, IMapper mapper, ILogger<UserBusiness> logger,IEmailService emailService,IRolBusiness rolBusiness,IRolUserBusiness rolUserBusiness) : base(data, mapper)
         {
             _data = data;
             _mapper = mapper;
             _logger = logger;
             _emailService = emailService;
+            _rolBusiness = rolBusiness;
+            _rolUserBusiness = rolUserBusiness;
         }
 
         // Obtener todos los usuarios con información de persona
-        public override async Task<List<UserDto>> GetAll()
-        {
-            try
-            {
-                IEnumerable<UserDto> users = (IEnumerable<UserDto>)await _data.GetAll();
-                return users.ToList();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error al obtener todos los usuarios con información de persona");
-                throw;
-            }
-        }
 
         // Obtener usuario por ID con información de persona
         public override async Task<UserDto> GetById(int id)
@@ -85,10 +76,6 @@ namespace Business.Implementations
 
                 // Mapear la entidad guardada de vuelta a DTO
                 var savedDto = _mapper.Map<UserDto>(entity);
-
-                // Enviar correo de bienvenida
-                var mensaje = $"¡Bienvenido {savedDto.UserName}! Tu cuenta ha sido creada correctamente.";
-                await _emailService.SendEmailAsync(savedDto.Email, mensaje);
 
                 // Mapear la entidad guardada de vuelta a DTO y devolverla
                 return savedDto;
@@ -171,6 +158,51 @@ namespace Business.Implementations
             {
                 _logger.LogError(ex, "Error al verificar contraseña");
                 throw;
+            }
+        }
+
+        public async Task AssignDefaultRoleAsync(int userId)
+        {
+            // 1. Verificar que el usuario exista
+            var user = await _data.GetById(userId);
+            if (user == null)
+                throw new Exception("El usuario no existe.");
+
+            // 2. Obtener el rol por defecto ya creado
+            var defaultRole = await _rolBusiness.GetByNameAsync("Usuario"); // Cambia "Usuario" por el nombre exacto si es diferente
+            if (defaultRole == null)
+                throw new Exception("El rol por defecto no existe.");
+
+            // 3. Verificar si ya tiene el rol asignado
+            var alreadyAssigned = await _rolUserBusiness.ExistsAsync(userId, defaultRole.Id);
+            if (alreadyAssigned)
+                return;
+
+            // 4. Asignar el rol al usuario
+            var userRoleDto = new RolUserDto
+            {
+                UserId = user.Id,
+                RolId = defaultRole.Id
+            };
+
+            await _rolUserBusiness.Save(userRoleDto);
+        }
+
+        public async Task SendWelcomeEmailAsync(string to)
+        {
+            try
+            {
+                // Armas el mensaje de bienvenida (puedes personalizarlo)
+                string message = "¡Bienvenido! Tu usuario ha sido creado exitosamente.";
+
+                // Llamas al servicio de email para enviar
+                await _emailService.SendEmailAsync(to, message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error enviando correo de bienvenida al usuario: {Email}", to);
+                // Decide si quieres relanzar la excepción o solo loguear
+                // throw;
             }
         }
 

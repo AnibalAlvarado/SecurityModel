@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using Utilities.Audit.Services;
 using Utilities.Audit.Strategy;
+using Utilities.BackgroundTasks;
 using Utilities.Exceptions;
 using Utilities.Helpers;
 using Utilities.Helpers.Validators;
@@ -21,6 +22,9 @@ namespace Web.Extensions
     {
         public static IServiceCollection AddAppServices(this IServiceCollection services)
         {
+            //segundo plano
+            services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
+            services.AddHostedService<QueuedHostedService>();
             // sin necesidad de crear Business o Data concreta
             services.AddScoped<IRepositoryBusiness<Rol, RolDto>, RepositoryBusiness<Rol, RolDto>>();
             services.AddScoped<IRepositoryData<Rol>, RepositoryData<Rol>>();

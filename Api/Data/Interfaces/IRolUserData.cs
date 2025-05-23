@@ -13,5 +13,7 @@ namespace Data.Interfaces
     public interface IRolUserData : IRepositoryData<RolUser>
     {
         public Task<IEnumerable<RolUser>> GetAllJoinAsync();
+
+        Task<bool> ExistsAsync(int userId, int roleId);
     }
 }

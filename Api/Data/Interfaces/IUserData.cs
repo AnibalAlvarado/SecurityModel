@@ -14,5 +14,6 @@ namespace Data.Interfaces
     {
         Task<User?> GetUserByUsernameAsync(string username);
         Task<string> GetUserRoleAsync(int userId);
+
     }
 }

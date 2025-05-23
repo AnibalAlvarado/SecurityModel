@@ -12,5 +12,7 @@ namespace Business.Interfaces
     public interface IUserBusiness : IRepositoryBusiness<User, UserDto>
     {
         Task<UserResponseDto?> ValidateUserAsync(string username, string password);
+        Task AssignDefaultRoleAsync(int userId);
+        Task SendWelcomeEmailAsync(string to);
     }
 }

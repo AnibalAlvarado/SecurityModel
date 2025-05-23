@@ -3,9 +3,11 @@ using Data.Interfaces;
 using Entity.Contexts;
 using Entity.DTOs;
 using Entity.Model;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,20 @@ namespace Data.Implementations
             : base(context, configuration,  auditService, currentUserService)
         {
 
+        }
+
+        public async Task<Rol> GetByNameAsync(string name)
+        {
+
+            try
+            {
+                return await _context.Set<Rol>()
+                        .FirstOrDefaultAsync(r => r.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+            }
+            catch (Exception ex)
+            {
+                throw new DataException("Error al obtener el rol por nombre", ex);
+            }
         }
     }
 }

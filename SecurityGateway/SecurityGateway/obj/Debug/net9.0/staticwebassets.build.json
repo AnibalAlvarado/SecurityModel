@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "WIlYMyWPtzORFCvxD2Tm4epIpbXXqpt40A3SqF7DOIU=",
+  "Source": "SecurityGateway",
+  "BasePath": "_content/SecurityGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

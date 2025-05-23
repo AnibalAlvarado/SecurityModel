@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|c:\\users\\anibal\\source\\repos\\securitygateway\\securitygateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|solutionrelative:securitygateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|c:\\users\\anibal\\source\\repos\\securitygateway\\securitygateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|solutionrelative:securitygateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|c:\\users\\anibal\\source\\repos\\securitygateway\\securitygateway\\controllers\\authcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|solutionrelative:securitygateway\\controllers\\authcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|c:\\users\\anibal\\source\\repos\\securitygateway\\securitygateway\\controllers\\admincontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|solutionrelative:securitygateway\\controllers\\admincontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|c:\\users\\anibal\\source\\repos\\securitygateway\\securitygateway\\middleware\\requireauthenticationmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|solutionrelative:securitygateway\\middleware\\requireauthenticationmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|c:\\users\\anibal\\source\\repos\\securitygateway\\securitygateway\\middleware\\middlewareextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|solutionrelative:securitygateway\\middleware\\middlewareextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|c:\\users\\anibal\\source\\repos\\securitygateway\\securitygateway\\config\\jwtconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|solutionrelative:securitygateway\\config\\jwtconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|c:\\users\\anibal\\source\\repos\\securitygateway\\securitygateway\\extension\\serviceextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|solutionrelative:securitygateway\\extension\\serviceextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|c:\\users\\anibal\\source\\repos\\securitygateway\\securitygateway\\dtos\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|solutionrelative:securitygateway\\dtos\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|c:\\users\\anibal\\source\\repos\\securitygateway\\securitygateway\\dtos\\securityresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0609B42-4DEE-4C6B-92F9-1670179BAD8D}|SecurityGateway\\SecurityGateway.csproj|solutionrelative:securitygateway\\dtos\\securityresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\appsettings.json",
+              "RelativeDocumentMoniker": "SecurityGateway\\appsettings.json",
+              "ToolTip": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\appsettings.json",
+              "RelativeToolTip": "SecurityGateway\\appsettings.json",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAowEIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-22T09:39:28.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MiddlewareExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Middleware\\MiddlewareExtensions.cs",
+              "RelativeDocumentMoniker": "SecurityGateway\\Middleware\\MiddlewareExtensions.cs",
+              "ToolTip": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Middleware\\MiddlewareExtensions.cs",
+              "RelativeToolTip": "SecurityGateway\\Middleware\\MiddlewareExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T11:22:47.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminController .cs",
+              "DocumentMoniker": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Controllers\\AdminController .cs",
+              "RelativeDocumentMoniker": "SecurityGateway\\Controllers\\AdminController .cs",
+              "ToolTip": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Controllers\\AdminController .cs",
+              "RelativeToolTip": "SecurityGateway\\Controllers\\AdminController .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T10:34:04.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController .cs",
+              "DocumentMoniker": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Controllers\\AuthController .cs",
+              "RelativeDocumentMoniker": "SecurityGateway\\Controllers\\AuthController .cs",
+              "ToolTip": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Controllers\\AuthController .cs",
+              "RelativeToolTip": "SecurityGateway\\Controllers\\AuthController .cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAswDIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T10:04:52.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RequireAuthenticationMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Middleware\\RequireAuthenticationMiddleware.cs",
+              "RelativeDocumentMoniker": "SecurityGateway\\Middleware\\RequireAuthenticationMiddleware.cs",
+              "ToolTip": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Middleware\\RequireAuthenticationMiddleware.cs",
+              "RelativeToolTip": "SecurityGateway\\Middleware\\RequireAuthenticationMiddleware.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwBMAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T11:23:36.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Program.cs",
+              "RelativeDocumentMoniker": "SecurityGateway\\Program.cs",
+              "ToolTip": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Program.cs",
+              "RelativeToolTip": "SecurityGateway\\Program.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAqwEMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T09:29:20.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "JwtConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Config\\JwtConfig.cs",
+              "RelativeDocumentMoniker": "SecurityGateway\\Config\\JwtConfig.cs",
+              "ToolTip": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Config\\JwtConfig.cs",
+              "RelativeToolTip": "SecurityGateway\\Config\\JwtConfig.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T10:49:33.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ServiceExtension.cs",
+              "DocumentMoniker": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Extension\\ServiceExtension.cs",
+              "RelativeDocumentMoniker": "SecurityGateway\\Extension\\ServiceExtension.cs",
+              "ToolTip": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Extension\\ServiceExtension.cs",
+              "RelativeToolTip": "SecurityGateway\\Extension\\ServiceExtension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T10:43:55.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Dtos\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "SecurityGateway\\Dtos\\ApiResponse.cs",
+              "ToolTip": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Dtos\\ApiResponse.cs",
+              "RelativeToolTip": "SecurityGateway\\Dtos\\ApiResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T10:06:43.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SecurityResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Dtos\\SecurityResponse.cs",
+              "RelativeDocumentMoniker": "SecurityGateway\\Dtos\\SecurityResponse.cs",
+              "ToolTip": "C:\\Users\\Anibal\\source\\repos\\SecurityGateway\\SecurityGateway\\Dtos\\SecurityResponse.cs",
+              "RelativeToolTip": "SecurityGateway\\Dtos\\SecurityResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T10:12:16.249Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

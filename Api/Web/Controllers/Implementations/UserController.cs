@@ -67,7 +67,7 @@ namespace Web.Controllers.Implementations
                 {
                     try
                     {
-                        _logger.LogInformation("📨 Iniciando tarea en segundo plano para enviar correo...");
+                        _logger.LogInformation(" Iniciando tarea en segundo plano para enviar correo...");
 
                         // Simular demora
                         await Task.Delay(3000, token);
@@ -80,7 +80,7 @@ namespace Web.Controllers.Implementations
                         }
 
                         await _business.SendWelcomeEmailAsync(dtoSaved.Email);
-                        _logger.LogInformation("✅ Tarea completada: Correo enviado.");
+                        _logger.LogInformation("Tarea completada: Correo enviado.");
                     }
                     catch (OperationCanceledException)
                     {
@@ -91,7 +91,7 @@ namespace Web.Controllers.Implementations
                         _logger.LogError(ex, "Error en la tarea en segundo plano al enviar correo a {Email}", dtoSaved.Email);
                     }
                 });
-                _logger.LogInformation("✅ Tarea encolada. El controlador sigue respondiendo.");
+                _logger.LogInformation(" Tarea encolada. El controlador sigue respondiendo.");
 
                 var response = new ApiResponse<UserDto>(dtoSaved, true, "Registro almacenado exitosamente", null!);
 

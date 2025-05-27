@@ -43,12 +43,24 @@ namespace SecurityGateway
                 client.BaseAddress = new Uri(securityServiceUrl); // URL del microservicio de seguridad
             });
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy
+                        .WithOrigins("http://localhost:4200", "https://frontend-tuapp.com")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
+
 
 
             var app = builder.Build();
             app.UseHttpsRedirection();
             // Middleware para autenticación e inactividad (debes crear esta clase JwtInactivityMiddleware)
             app.UseAuthentication();
+            app.UseCors("AllowAll"); //  middleware CORS!
             app.UseAuthorization();
             app.UseMiddleware<RequireAuthenticationMiddleware>(); // Usa aquí tu middleware personalizado
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SecurityGateway")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b11d1ccce7345669f04e4ccfe3c7d002cee5279")]
 [assembly: System.Reflection.AssemblyProductAttribute("SecurityGateway")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SecurityGateway")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

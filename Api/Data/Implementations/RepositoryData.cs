@@ -59,7 +59,7 @@ namespace Data.Implementations
                 var lstModel = await _context.Set<T>().ToListAsync();
 
                 // Auditoría de la acción GetAll
-                await AuditAsync("GetAll");
+                //await AuditAsync("GetAll");
 
                 return lstModel;
             }

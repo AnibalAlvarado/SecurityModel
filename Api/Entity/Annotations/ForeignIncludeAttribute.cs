@@ -9,11 +9,19 @@ namespace Entity.Annotations
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class ForeignIncludeAttribute : Attribute
     {
-        public string? SelectPath { get; }
+        /// <summary>
+        /// Lista de rutas de propiedades que se desean incluir desde la propiedad de navegación.
+        /// Ejemplo: "Nombre", "Direccion.Ciudad"
+        /// </summary>
+        public string[]? SelectPaths { get; }
 
-        public ForeignIncludeAttribute(string? selectPath = null)
-        {
-            SelectPath = selectPath;
+        /// <summary>
+        /// Constructor que acepta múltiples rutas opcionales.
+        /// </summary>
+        /// <param name="selectPaths">Una o más rutas anidadas a incluir desde la propiedad de navegación.</param>
+        public ForeignIncludeAttribute(params string[] selectPaths)
+        {   
+            SelectPaths = selectPaths;
         }
     }
 }

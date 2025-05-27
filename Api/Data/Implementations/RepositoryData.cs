@@ -210,14 +210,15 @@ namespace Data.Implementations
             var entityType = typeof(T);
             var query = _context.Set<T>().AsQueryable();
 
-            var foreignKeyProps = entityType
-             .GetProperties()
-             .Where(p => Attribute.IsDefined(p, typeof(ForeignIncludeAttribute)))
-             .ToList();
+             var foreignKeyProps = entityType
+                 .GetProperties()
+                 .Where(p => Attribute.IsDefined(p, typeof(ForeignIncludeAttribute)))
+                 .ToList();
 
+            // Incluye las propiedades de navegación en la consulta
             foreach (var prop in foreignKeyProps)
             {
-                query = query.Include(prop.Name); // prop.Name ahora es "Form", no "FormId"
+                query = query.Include(prop.Name); // ejemplo: "Form", "Module"
             }
 
             var resultList = await query.ToListAsync();
@@ -238,15 +239,19 @@ namespace Data.Implementations
 
                     if (foreignValue == null) continue;
 
-                    if (!string.IsNullOrEmpty(attr.SelectPath))
+                    // Si no hay rutas especificadas, incluye el objeto completo
+                    if (attr.SelectPaths == null || attr.SelectPaths.Length == 0)
                     {
-                        var value = ReflectionHelper.GetNestedPropertyValue(foreignValue, attr.SelectPath);
-                        var key = ReflectionHelper.PascalJoin(prop.Name, attr.SelectPath);
-                        dict[key] = value;
+                        dict[prop.Name] = foreignValue;
                     }
                     else
                     {
-                        dict[prop.Name] = foreignValue;
+                        foreach (var path in attr.SelectPaths)
+                        {
+                            var value = ReflectionHelper.GetNestedPropertyValue(foreignValue, path);
+                            var key = ReflectionHelper.PascalJoin(prop.Name, path);
+                            dict[key] = value;
+                        }
                     }
                 }
 

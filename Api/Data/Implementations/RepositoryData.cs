@@ -56,10 +56,9 @@ namespace Data.Implementations
         {
             try
             {
-                var lstModel = await _context.Set<T>().ToListAsync();
-
-                // Auditoría de la acción GetAll
-                //await AuditAsync("GetAll");
+                var lstModel = await _context.Set<T>()
+                    .Where(x => x.IsDeleted == false) // 👈 Solo activos
+                    .ToListAsync();
 
                 return lstModel;
             }
@@ -84,7 +83,7 @@ namespace Data.Implementations
                 var entity = await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
 
                 // Auditar acción GetById, enviamos la entidad si la encontró
-                await AuditAsync("GetById", id);
+                //await AuditAsync("GetById", id);
 
                 return entity;
             }
@@ -108,7 +107,7 @@ namespace Data.Implementations
             {
                 _context.Set<T>().Add(entity);
                 await _context.SaveChangesAsync();
-                await AuditAsync("Save", entity.Id);
+                //await AuditAsync("Save", entity.Id);
                 return entity;
             }
             catch (DbException ex)
@@ -131,7 +130,7 @@ namespace Data.Implementations
             {
                 _context.Entry(entity).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
-                await AuditAsync("Update", entity.Id);
+                //await AuditAsync("Update", entity.Id);
                 _context.Entry(entity).State = EntityState.Detached;
             }
             catch (DbException ex)
@@ -162,7 +161,7 @@ namespace Data.Implementations
             {
                 _context.Remove(entity);
                 await _context.SaveChangesAsync();
-                await AuditAsync("Delete", id);
+                //await AuditAsync("Delete", id);
                 return true;
             }
             catch (DbUpdateException ex)
@@ -184,12 +183,12 @@ namespace Data.Implementations
                     throw new DataException($"No se encontró un registro con el ID {id}.");
 
                 // Marcar como inactivo (soft delete)
-                entity.Asset = false;
+                entity.IsDeleted = true;
 
                 _context.Entry(entity).State = EntityState.Modified;
                 int result = await _context.SaveChangesAsync();
 
-                await AuditAsync("Logical Delete", id);
+                //await AuditAsync("Logical Delete", id);
 
                 return result;
             }

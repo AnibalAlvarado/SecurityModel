@@ -32,6 +32,7 @@ builder.Services.AddAppServices();
 
 // AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();

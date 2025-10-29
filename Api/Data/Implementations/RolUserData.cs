@@ -29,7 +29,7 @@ namespace Data.Implementations
 
         public async Task<IEnumerable<RolUser>> GetAllJoinAsync()
         {
-            await AuditAsync("GetAllJoinAsync");
+            //await AuditAsync("GetAllJoinAsync");
 
             return await _context.RolUser
                 .Include(x => x.User)
@@ -45,13 +45,13 @@ namespace Data.Implementations
                 .Include(ru => ru.Rol)
                 .ToListAsync();
 
-            await AuditAsync("GetAll");
+            //await AuditAsync("GetAll");
 
             return entities;
         }
         public override async Task<RolUser> GetById(int id)
         {
-            await AuditAsync("GetById", id);
+            //await AuditAsync("GetById", id);
             return await _context.RolUser
                 .Include(ru => ru.User)
                 .Include(ru => ru.Rol)

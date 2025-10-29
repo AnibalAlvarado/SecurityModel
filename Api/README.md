@@ -1,2 +1,1 @@
-# Diagnosticamos-api
-Diagnosticamos-api
+
